@@ -20,10 +20,18 @@ public class SectionRVAdapter extends RecyclerView.Adapter<SectionRVAdapter.Sect
     List<Section> mSection;
     Context mContext;
 
-    public SectionRVAdapter(Context context,List<Section> sections)
+    public SectionRVAdapter(Context context)
     {
         mContext = context;
-        mSection = sections;
+
+    }
+    public void setDataset(List<Section> sections)
+    {
+        if(mSection != sections)
+        {
+            mSection = sections;
+            notifyDataSetChanged();
+        }
     }
 
     public static class SectionViewHolder extends RecyclerView.ViewHolder
@@ -65,4 +73,8 @@ public class SectionRVAdapter extends RecyclerView.Adapter<SectionRVAdapter.Sect
     public void onAttachedToRecyclerView(RecyclerView recyclerView) {
         super.onAttachedToRecyclerView(recyclerView);
     }
+
+
+
+
 }
